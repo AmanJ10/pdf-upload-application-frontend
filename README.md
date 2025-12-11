@@ -1,16 +1,121 @@
-# React + Vite
+# Frontend Setup – Hospital PDF Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This document explains how to set up and run the **frontend** of the Hospital PDF Application.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
+- **React + Vite**
+- **Tailwind CSS**
+- **Axios** for API calls
+- **Vite Environment Variables**
+---
 
-## React Compiler
+## 📁 Project Structure (Example)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+frontend/
+ ├── src/
+ │   ├── components/
+ │   ├── pages/
+ │   ├── services/
+ │   └── App.jsx
+ ├── public/
+ ├── package.json
+ ├── vite.config.js
+ └── index.html
+```
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🔧 1. Prerequisites
+
+Make sure the following are installed:
+
+- **Node.js** (>= 16.x)
+- **npm** or **yarn**
+- Access to your **backend API** running on:  
+  `http://localhost:5001/api`
+
+---
+
+## ⚙️ 2. Installation
+
+1. Navigate to the frontend folder:
+
+```bash
+cd frontend
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+## 🌍 3. Environment Variables
+
+Create a `.env` file in the frontend root:
+
+```
+VITE_BACKEND_API_URL=http://localhost:5001/api
+```
+
+You can verify the value inside your code:
+
+```javascript
+console.log(import.meta.env.VITE_BACKEND_API_URL);
+```
+
+---
+
+## ▶️ 4. Running the Frontend
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+You should see something like:
+
+```
+VITE v5 running at:
+> Local:    http://localhost:5173/
+> Network:  http://192.168.x.x:5173/
+```
+
+Open your browser and visit:  
+👉 **http://localhost:5173**
+
+---
+
+## 🧪 5. Testing API Connectivity
+
+Make sure your backend is running.
+
+Test API calls inside the app or directly using curl:
+
+```bash
+curl http://localhost:5001/api
+```
+
+---
+
+
+## 📦 7. Build for Production
+
+```bash
+npm run build
+```
+
+Production files will be in the `dist/` folder.
+
+---
+
+## 📄 License
+MIT License
+
+---
