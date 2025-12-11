@@ -11,9 +11,25 @@ export default function UploadCard() {
 
   const [file, setFile] = useState(null);
 
+  const MAX_SIZE = 10 * 1024 * 1024; // 10MB
+
   const handleUpload = (e) => {
     e.preventDefault();
-    if (!file) return;
+
+    if (!file) {
+      alert("Please select a file.");
+      return;
+    }
+
+    if (file.size > MAX_SIZE) {
+      alert("File size must be less than 10MB");
+      return;
+    }
+
+    if (file.type !== "application/pdf") {
+      alert("Only PDF files are allowed");
+      return;
+    }
 
     dispatch(uploadDocument(file));
     setFile(null);
